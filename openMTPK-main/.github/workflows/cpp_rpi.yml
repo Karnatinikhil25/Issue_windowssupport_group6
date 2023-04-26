@@ -1,0 +1,38 @@
+name: RPI-OS
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    name: openMTPK on Raspberry Pi
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: initalize github repo
+        uses: actions/checkout@v3
+      -   
+        name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      -   
+        name: Initialize Raspberry Pi OS ARMv8 Image
+        uses: pguyot/arm-runner-action@v2
+        id: build_image
+        with:
+          base_image: raspios_lite_arm64:latest
+          commands: |
+            uname -a
+            echo ::set-output name=uname::$(uname -a) 
+            sudo apt-get install -y cmake
+            cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+            cd build && sudo make
+            echo "The uname output was ${{ steps.runcmd.outputs.uname }}"
+      -   
+        name: Get platform info
+        run: |
+          uname -a
+          echo ::set-output name=uname::$(uname -a) 
+

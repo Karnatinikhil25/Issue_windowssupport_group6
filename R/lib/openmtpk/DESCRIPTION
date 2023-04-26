@@ -1,0 +1,7 @@
+Package: example
+Version: 1.0
+Title: Example package
+Author: Your Name
+Maintainer: Your Name <your.email@example.com>
+Description: Example package
+License: GPL (>= 2)

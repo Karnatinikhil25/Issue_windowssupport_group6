@@ -1,0 +1,83 @@
+
+The above code is an implementation of Breadth-First Search algorithm using Python. 
+
+BFS is a traversing algorithm that visits all the nodes of a graph or tree in breadth-first order, i.e., 
+
+it visits all the nodes at the current depth level before moving on to the next level.
+
+
+Define the graph as a dictionary of lists, where the keys are the nodes and the values are the neighbors of each node.
+
+This graph has six nodes ('5', '3', '7', '2', '4', and '8') and seven edges.
+
+Define an empty list visited to keep track of visited nodes, and an empty list queue to implement BFS.
+
+Define a function bfs() that takes three arguments:
+visited: the list of visited nodes
+graph: the graph represented as a dictionary
+node: the starting node for BFS
+The function initializes the visited and queue lists with the starting node, and then starts a loop to visit all the nodes in the graph using BFS.
+
+
+We start with node '5' as the starting node and add it to the visited and queue lists.
+We dequeue node '5' from the queue and print it as the first visited node.
+We add its neighbors '3' and '7' to the visited and queue lists.
+We dequeue node '3' from the queue and print it as the next visited node.
+We add its neighbors '2' and '4' to the visited and queue lists. Note that node '8' is also a neighbor of '4', 
+
+but it has already been visited, so we don't add it to the queue.
+We dequeue node '7' from the queue and print it as the next visited node.
+We add its neighbor '8' to the visited and queue lists.
+We dequeue node '2' from the queue and print it as the next visited node. Note that it has no neighbors, 
+
+so we don't add any nodes to the visited or queue lists.
+We dequeue node '4' from the queue and print it as the next
+
+
+
+
+
+The above code is an implementation of Breadth-First Search algorithm using Python. 
+
+BFS is a traversing algorithm that visits all the nodes of a graph or tree in breadth-first order, i.e., 
+
+it visits all the nodes at the current depth level before moving on to the next level.
+
+Here's the step-by-step explanation of the code:
+
+First, we define the graph as a dictionary with nodes as keys and their corresponding neighbors as values.
+
+graph = { '5' : ['3','7'], '3' : ['2', '4'], '7' : ['8'], '2' : [], '4' : ['8'], '8' : [] }
+
+We initialize two lists, visited and queue. visited list is used to keep track of visited nodes, 
+
+and queue list is used to keep track of nodes to be visited.
+
+visited = [] queue = []
+
+We define the bfs function that takes in three parameters: visited list, graph, and starting node. 
+
+In the function, we append the starting node to the visited list and queue.
+
+visited.append(node) queue.append(node)
+
+We start a while loop that runs until the queue is empty.
+
+ Within the loop, we pop the first element from the queue and print it.
+
+m = queue.pop(0) print(m, end=" ")
+
+We loop through the neighbors of the popped node and check if they are already visited. 
+
+If not, we append them to the visited list and queue.
+
+for neighbour in graph[m]: if neighbour not in visited: visited.append(neighbour) queue.append(neighbour)
+
+We call the bfs function with starting node '5' and print the nodes visited in BFS order.
+
+bfs(visited, graph, '5') print("\nFollowing is the Breadth-First Search")
+
+
+
+
+
